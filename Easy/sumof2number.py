@@ -11,5 +11,5 @@ def sumOfTwoNumbers(array, targetSum):
     return []
 
 
-x = sumOfTwoNumbers([3, 5, -4, 8, 11, 1, -1, 6], 10)
+x = sumOfTwoNumbers([4, 6, -3, 9, 12, 2, 1, 6], 13)
 print(x)
