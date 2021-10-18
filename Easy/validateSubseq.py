@@ -22,6 +22,6 @@ def validateSubsequence(array, sequence):
     return seqidx == len(sequence)
 
 
-x = validateSubsequence([1, 3, 5, 7, 9, 5, 7], [3, 7, 5])
+x = validateSubsequence([1, 3, 5, 7, 9, 5, 7], [30, 70, 50])
 
 print(x)
