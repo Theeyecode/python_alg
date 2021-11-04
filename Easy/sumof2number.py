@@ -1,9 +1,11 @@
+
+
 # def sumOfTwoNumbers(array, targetSum):
 #     nums = {}
 
 #     for n in array:
 #         potentialNum = targetSum - n
-#         if potentialNum in nums:
+#         if potentialNum in nums:                          #this alogorithm runs in 0(n) times
 #             return [potentialNum, n]
 
 #         else:
@@ -12,7 +14,7 @@
 #     return []
 
 def sumOfTwoNumbers(array, targetSum):
-    array.sort()
+    array.sort()                                    # runs in 0(nlogn) times, because of the sorting algorithn
     left = 0
     right = len(array) - 1
 

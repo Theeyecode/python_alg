@@ -8,7 +8,7 @@ class Node:
         self.prev = prev
 
 
-class doublyLinkedList:
+class DoublyLinkedList:
     def __init__(self) -> None:
         self.head = None
         self.tail = None
