@@ -7,6 +7,39 @@ class Node:
         self.next = None
 
 
+class ExampleLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, data) -> None:
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        cur = self.head
+        while cur.next:
+            cur = cur.next
+        cur.next = new_node
+
+    def print_list(self):
+        if self.head is None:
+            raise ValueError('No element in the list')
+
+        cur = self.head
+        while cur:
+            print(cur.data, end='->')
+
+            cur = cur.next
+
+    def is_CircularLinkedList(self, input_list):
+        cur = input_list.head
+        while cur.next:
+            cur = cur.next
+            if cur.next == input_list.head:
+                return True
+        return False
+
+
 class CircularLinkedList:
     def __init__(self) -> None:
         self.head = None
@@ -154,15 +187,35 @@ class CircularLinkedList:
                 print(cur.data, '->', self.head.data)
                 break
 
+    def is_CircularLinkedList(self, input_list):
+        cur = input_list.head
+        while cur.next:
+            cur = cur.next
+            if cur.next == input_list.head:
+                return True
+        return False
+
 
 cllist = CircularLinkedList()
+
 
 cllist.append(1)
 cllist.append(2)
 cllist.append(3)
 cllist.append(4)
 print(len(cllist))
-
-
-cllist.josephus_problem(2)
 cllist.print_list()
+
+
+llist = ExampleLinkedList()
+
+llist.append('A')
+llist.append('B')
+llist.append('C')
+llist.append('D')
+llist.print_list()
+
+print('\n')
+
+print(cllist.is_CircularLinkedList(cllist))
+print(llist.is_CircularLinkedList(llist))

@@ -9,4 +9,4 @@ x = reverses("Eyecode")
 print(x)
 
 inputStr = 'Geeksforgeeks'
-print(inputStr[-1::-1])
+print(inputStr[::-1])
