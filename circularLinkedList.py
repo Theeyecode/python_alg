@@ -13,6 +13,7 @@ class CircularLinkedList:
         self.size = 0
 
     # this code adds element from the front eg 1->2->3->1 prepend(0) = 0->1->2->3->0
+
     def prepend(self, data) -> None:
         new_node = Node(data)
         cur = self.head
@@ -27,6 +28,7 @@ class CircularLinkedList:
         self.size += 1
 
     # this code adds element from the back eg 1->2->3->1 prepend(4) = 1->2->3->4->1
+
     def append(self, data) -> None:
         if not self.head:
             anew_node = Node(data)
@@ -43,6 +45,7 @@ class CircularLinkedList:
         self.size += 1
 
     # this function removes element from every possible case .
+
     def remove(self, key) -> None:
         if self.head is None:
             raise ValueError('CircularLinked list is empty')
@@ -56,6 +59,7 @@ class CircularLinkedList:
                 while cur.next != self.head:
                     cur = cur.next
                 cur.next = self.head.next
+                print('This is the cur', cur.data)
                 self.head = self.head.next
         else:
             cur = self.head
@@ -64,6 +68,27 @@ class CircularLinkedList:
                 prev = cur
                 cur = cur.next
                 if cur.data == key:
+                    prev.next = cur.next
+                    cur = cur.next
+        self.size -= 1
+
+    # this method removes by specifying a node directly but doesnt work atall.
+
+    def remove_node(self, node):
+        if self.head == node:
+            cur = self.head
+            while cur.next != self.head:
+                cur = cur.next
+            cur.next = self.head.next
+            self.head = self.head.next
+
+        else:
+            cur = self.head
+            prev = None
+            while cur.next != self.head:
+                prev = cur
+                cur = cur.next
+                if cur == node:
                     prev.next = cur.next
                     cur = cur.next
         self.size -= 1
@@ -87,15 +112,36 @@ class CircularLinkedList:
             cur = cur.next
         prev.next = self.head
 
-        scllist = CircularLinkedList()
+        scllist = CircularLinkedList()  # creates a new List to store the othe part
         while cur.next is not self.head:
             scllist.append(cur.data)
             cur = cur.next
         scllist.append(cur.data)
 
-        self.print_list()
+        self.print_list()  # calling the print_statemnt.
         print("\n")
         scllist.print_list()
+
+    def josephus_problem(self, step) -> None:
+        cur = self.head
+        while self.size > 1:
+            count = 1
+            while count != step:
+                cur = cur.next
+                count += 1
+            print("Kill", str(cur.data))
+            self.remove_node(cur)
+            cur = cur.next
+
+    def __len__(self):
+        cur = self.head
+        count = 0
+        while cur:
+            count += 1
+            cur = cur.next
+            if cur == self.head:
+                break
+        return count
 
     def print_list(self):
         if self.head is None:
@@ -110,14 +156,13 @@ class CircularLinkedList:
 
 
 cllist = CircularLinkedList()
-cllist.prepend('0')
-cllist.prepend('1')
-cllist.prepend('2')
-cllist.prepend('3')
-cllist.append("A")
-cllist.append("B")
-cllist.append("C")
+
+cllist.append(1)
+cllist.append(2)
+cllist.append(3)
+cllist.append(4)
+print(len(cllist))
+
+
+cllist.josephus_problem(2)
 cllist.print_list()
-cllist.remove("3")
-cllist.print_list()
-cllist.split_list()
