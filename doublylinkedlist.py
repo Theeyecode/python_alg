@@ -80,7 +80,7 @@ class DoublyLinkedList:
                     return
 
             current = current.next
-        size -= 1
+        self.size -= 1
 
     def display(self) -> None:
         if self.head is None and self.tail is None:
@@ -106,7 +106,7 @@ class DoublyLinkedList:
             cur = cur.next
 
 
-dll = doublyLinkedList()
+dll = DoublyLinkedList()
 
 dll.addBegining(2)
 dll.addBegining(3)

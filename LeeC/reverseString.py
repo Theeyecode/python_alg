@@ -7,3 +7,6 @@ def reverses(s):
 
 x = reverses("Eyecode")
 print(x)
+
+inputStr = 'Geeksforgeeks'
+print(inputStr[-1::-1])

@@ -56,11 +56,13 @@ class LinkedList():
             while cur_1 and cur_1.value != firstNode:
                 prev_1 = cur_1
                 cur_1 = cur_1.next
+
             prev_2 = None
             cur_2 = self.head
             while cur_2 and cur_2.value != secondNode:
                 prev_2 = cur_2
                 cur_2 = cur_2.next
+
             if not cur_1 or not cur_2:
                 return
             if prev_1:
