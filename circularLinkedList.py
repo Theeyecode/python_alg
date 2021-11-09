@@ -12,16 +12,17 @@ class CircularLinkedList:
         self.head = None
         self.size = 0
 
-    def prepend(self, data):
-        if not self.head:
-            anew_node = Node(data)
-            self.head = anew_node
-            self.head.next = self.head
+    def prepend(self, data) -> None:
+        new_node = Node(data)
+        cur = self.head
+        new_node.next = self.head
+        if self.head is None:
+            new_node.next = new_node
         else:
-            new_node = Node(data)
-
-            new_node.next = self.head
-            self.head = new_node
+            while cur.next != self.head:
+                cur = cur.next
+            cur.next = new_node
+        self.head = new_node
         self.size += 1
 
     def append(self, data) -> None:
@@ -42,6 +43,10 @@ class CircularLinkedList:
     def remove(self, key) -> None:
         if self.head is None:
             raise ValueError('CircularLinked list is empty')
+
+        elif self.head == self.head.next and self.head.data == key:
+            self.head = None
+
         elif self.head.data == key:
             if self.head.next is not None:
                 cur = self.head
@@ -49,6 +54,7 @@ class CircularLinkedList:
                     cur = cur.next
                 cur.next = self.head.next
                 self.head = self.head.next
+
         else:
             cur = self.head
             prev = None
@@ -70,15 +76,16 @@ class CircularLinkedList:
                 print(cur.data, '->', self.head.data)
                 break
 
-        # print('')
-
 
 cllist = CircularLinkedList()
 cllist.prepend('0')
-cllist.append("A")
-cllist.append("B")
-cllist.append("C")
-cllist.remove("C")
+cllist.prepend('1')
+cllist.prepend('2')
+cllist.prepend('3')
+# cllist.append("A")
+# cllist.append("B")
+# cllist.append("C")
+cllist.remove("3")
 
 
 cllist.print_list()
