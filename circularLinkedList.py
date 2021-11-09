@@ -12,6 +12,7 @@ class CircularLinkedList:
         self.head = None
         self.size = 0
 
+    # this code adds element from the front eg 1->2->3->1 prepend(0) = 0->1->2->3->0
     def prepend(self, data) -> None:
         new_node = Node(data)
         cur = self.head
@@ -25,6 +26,7 @@ class CircularLinkedList:
         self.head = new_node
         self.size += 1
 
+    # this code adds element from the back eg 1->2->3->1 prepend(4) = 1->2->3->4->1
     def append(self, data) -> None:
         if not self.head:
             anew_node = Node(data)
@@ -40,6 +42,7 @@ class CircularLinkedList:
             new_node.next = self.head
         self.size += 1
 
+    # this function removes element from every possible case .
     def remove(self, key) -> None:
         if self.head is None:
             raise ValueError('CircularLinked list is empty')
@@ -54,7 +57,6 @@ class CircularLinkedList:
                     cur = cur.next
                 cur.next = self.head.next
                 self.head = self.head.next
-
         else:
             cur = self.head
             prev = None
@@ -64,6 +66,36 @@ class CircularLinkedList:
                 if cur.data == key:
                     prev.next = cur.next
                     cur = cur.next
+        self.size -= 1
+
+    # this method slices the circular-linkedlist by using the length property.
+
+    def split_list(self) -> None:
+        if self.size == 0:
+            return None
+        if self.size == 1:
+            return self.head
+
+        mid = self.size // 2
+        prev = None
+        count = 0
+        cur = self.head
+
+        while cur and count < mid:
+            count += 1
+            prev = cur
+            cur = cur.next
+        prev.next = self.head
+
+        scllist = CircularLinkedList()
+        while cur.next is not self.head:
+            scllist.append(cur.data)
+            cur = cur.next
+        scllist.append(cur.data)
+
+        self.print_list()
+        print("\n")
+        scllist.print_list()
 
     def print_list(self):
         if self.head is None:
@@ -82,10 +114,10 @@ cllist.prepend('0')
 cllist.prepend('1')
 cllist.prepend('2')
 cllist.prepend('3')
-# cllist.append("A")
-# cllist.append("B")
-# cllist.append("C")
-cllist.remove("3")
-
-
+cllist.append("A")
+cllist.append("B")
+cllist.append("C")
 cllist.print_list()
+cllist.remove("3")
+cllist.print_list()
+cllist.split_list()
