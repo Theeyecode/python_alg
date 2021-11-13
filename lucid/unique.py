@@ -15,6 +15,11 @@ def check_uniqness(input_str):
     return True
 
 
+def check_uniqness_2(input_str):
+    return (len(set(input_str)) == len(input_str))
+
+
 # input_str = normalize('Helo')
 # print('This is the new input_string', input_str)
 print(check_uniqness("Helo"))
+print(check_uniqness_2("Hello"))
