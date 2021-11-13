@@ -1,15 +1,15 @@
 # 2 ways in checking if there exist an anagram between two strings
 # brute approach
 
-# ss1 = 'Fairy tales'
-# ss2 = 'rails afety'
-ss1 = 'Fairy tales '
+ss1 = 'Fairy tales'
 ss2 = 'rail safety'
 # s1 = s1.replace(" ", "").lower()
 # s2 = s2.replace(" ", "").lower()
 
 # print(sorted(s1) == sorted(s2))
 
+
+# using hash map, while this do
 
 def is_anagram(s1, s2):
     hashMemory = dict()

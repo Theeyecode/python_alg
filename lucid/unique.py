@@ -16,7 +16,9 @@ def check_uniqness(input_str):
 
 
 def check_uniqness_2(input_str):
+    # The set function returns only one of everyletter present in a string
     return (len(set(input_str)) == len(input_str))
+    # built in method for checking uniqness
 
 
 # input_str = normalize('Helo')

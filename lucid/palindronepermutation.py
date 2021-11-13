@@ -1,4 +1,4 @@
-def isPalindrome_permutation(s):
+def isPalindrome_permutation(s):  # doesnt matter in the order,
     hashMemory = dict()
     s = s.replace(" ", '')
     s = s.lower()

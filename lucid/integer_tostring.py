@@ -17,7 +17,7 @@ def convert_to_string(input_int):
         x = input_int % 10  # get the last number
         result = chr(ord('0') + x)  # convert it to string
         output_str.append(result)
-        input_int //= 10
+        input_int //= 10  # this divides by 10 and remove the remaineder i.e automatically removes the last element because its in base 10
     output_str = output_str[::-1]  # reverse the list
     if isNegative:
         return '-' + ''.join(output_str)
