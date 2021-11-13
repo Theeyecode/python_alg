@@ -13,5 +13,4 @@ def length_string_recursive(input_string, idx=0):
     return 1 + length_string_recursive(input_string[1:])
 
 
-print(length_string_iterative("abc"))
-print(length_string_recursive("abc"))
+print(length_string_recursive('abc'))
