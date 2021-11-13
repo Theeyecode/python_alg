@@ -18,7 +18,3 @@ def count_consonant_recursion(input_string, idx=0):
 
     else:
         return count_consonant_recursion(input_string[1:])
-
-
-print(count_consonant_iterative('abc de'))
-print(count_consonant_recursion('xxxx  fffa'))
