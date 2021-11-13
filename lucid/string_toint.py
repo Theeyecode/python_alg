@@ -12,14 +12,13 @@ def str_to_int(input_str):
 
     for i in range(start_index, x):
         output = 10**(x - (i+1))
-        # * input_str[start_index]
         output_int += output * (ord(input_str[i]) - ord('0'))
 
     if is_Negative:
-        return '-' + output_int
+        return -1 * output_int
     else:
         return output_int
 
 
-x = (str_to_int('123'))
-print(type(x))
+x = (str_to_int('-1123'))
+print(x)
