@@ -5,8 +5,13 @@
 # 123 // 10 gives 12
 
 def convert_to_string(input_int):
+    if input_int.isalpha():
+        return 'requires an integer value'
     if input_int < 0:
+        isNegative = True
         input_int *= -1
+    else:
+        isNegative = False
     output_str = []
     while input_int > 0:
         x = input_int % 10  # get the last number
@@ -14,7 +19,10 @@ def convert_to_string(input_int):
         output_str.append(result)
         input_int //= 10
     output_str = output_str[::-1]
-    return ''.join(output_str)
+    if isNegative:
+        return '-' + ''.join(output_str)
+    else:
+        return ''.join(output_str)
 
 
-print(convert_to_string(-923))
+print(convert_to_string('abc'))
