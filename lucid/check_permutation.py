@@ -1,4 +1,4 @@
-# this code check if a particular string is a permutation of another string   eg..dog and god
+# this code check if a particular string is a permutation of another string   eg..ddog and gdod
 def check_permutaion(str_1, str_2):
     if len(str_1) != len(str_2):
         return False
@@ -8,15 +8,18 @@ def check_permutaion(str_1, str_2):
 
     for i in str_1:
         if i in d:
-            d[i] -= 1
+            print(i)
+            d[i] += 1
         else:
             d[i] = 1
 
     for i in str_2:
         if i in d:
+            print(i)
             d[i] -= 1
         else:
             d[i] = 1
+            print('k', i)
     return all(value == 0 for value in d.values())
 
 
@@ -36,5 +39,5 @@ def check_permutation_2(str1, str2):
     return True
 
 
-print(check_permutaion('hi', 'ih'))
-print(check_permutation_2('hi', 'ih'))
+print(check_permutaion('hiddl', 'dxdih'))
+# print(check_permutation_2('hi', 'ih'))
