@@ -8,14 +8,14 @@ def check_permutaion(str_1, str_2):
 
     for i in str_1:
         if i in d:
-            print(i)
+            
             d[i] += 1
         else:
             d[i] = 1
 
     for i in str_2:
         if i in d:
-            print(i)
+           
             d[i] -= 1
         else:
             d[i] = 1

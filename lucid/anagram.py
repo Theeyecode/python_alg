@@ -1,7 +1,7 @@
 # 2 ways in checking if there exist an anagram between two strings
 # brute approach
 
-ss1 = 'Fairx tales'
+ss1 = 'Fairy tales'
 ss2 = 'rail safety'
 # s1 = s1.replace(" ", "").lower()
 # s2 = s2.replace(" ", "").lower()
@@ -29,7 +29,6 @@ def is_anagram(s1, s2):
             hashMemory[i] = 1
     for i in hashMemory:
         if hashMemory[i] != 0:
-
             return False
     print('e reach here')
     return True
