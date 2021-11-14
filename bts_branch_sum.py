@@ -16,10 +16,10 @@ def calculateBranchSum(node, runningSum, sums):
     if node is None:
         return
 
-    newRunningSum = runnimgSum + node.value
+    newRunningSum = runningSum + node.value
     if node.left is None and node.right is None:
         sums.append(newRunningSum)
         return
 
     calculateBranchSum(node.left, newRunningSum, sums)
-    calculateBranchSum(node.right, newRunning, sums)
+    calculateBranchSum(node.right, newRunningSum, sums)
