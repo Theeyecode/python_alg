@@ -15,7 +15,7 @@ def intersection_sorted_list(A, B):
         elif A[i] > B[j]:
             j += 1
         else:
-            if not A[i] in new_list:
+            if i == 0 or A[i] != A[i-1]:  # OR if not A[i] in new_list
                 new_list.append(A[i])
             else:
                 pass
