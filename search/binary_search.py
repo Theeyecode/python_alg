@@ -6,7 +6,7 @@ def binary_search_iterative(data, target):
     low = 0
     high = len(data) - 1
 
-    while low < high:
+    while low <= high:
         mid = (low + high) // 2
         if data[mid] == target:
             return target
