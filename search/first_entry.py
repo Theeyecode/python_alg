@@ -1,7 +1,6 @@
 def find_first_entry(data, target):
     low = 0
     high = len(data) - 1
-    first_number = None
 
     if len(data) == 0:
         return None
@@ -25,10 +24,8 @@ def find_first_entry(data, target):
 
     return data[mid]
 
-    # while mid -1 > 0:
-    #     if data[mid] == data[mid -1]:
 
-
-A = [-14, -10, 2, 108, 108, 243, 285, 285, 285, 401]
-y = find_first_entry(A, 108)
+# A = [-14, -10, 2, 108, 108, 243, 285, 285, 285, 401]
+A = [1, 1, 1, 1, 2, 1, 1, 1, 1, 1]
+y = find_first_entry(A, 1)
 print(y)
