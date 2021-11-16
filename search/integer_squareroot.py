@@ -26,7 +26,7 @@ def find_integer_sqaure(k):
             high = mid - 1
             print('high is:', high)
 
-    return low - 1
+    return low - 1   # this algorithm ends up making low>high, which breaks out of the while loop
 
 
 y = find_integer_sqaure(12)

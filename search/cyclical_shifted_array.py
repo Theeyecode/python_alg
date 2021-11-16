@@ -13,7 +13,7 @@ def cyclical_shifted_array(data):
     return data[low]
 
 
-A = [1, 2, 3, 4, 5, 6, 7]
-# A = [3, 4, 5, 6, 7, 1, 2]
+# A = [1, 2, 3, 4, 5, 6, 7]
+A = [3, 4, 5, 6, 7, 1, 2]
 y = cyclical_shifted_array(A)
 print(y)
