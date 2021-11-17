@@ -5,8 +5,8 @@
 # 123 // 10 gives 12
 
 def convert_to_string(input_int):
-    if input_int.isalpha():
-        return 'requires an integer value'
+    # if input_int.isalpha():
+    #     return 'requires an integer value'
     if input_int < 0:
         isNegative = True  # to catch the neegative number
         input_int *= -1
@@ -25,4 +25,9 @@ def convert_to_string(input_int):
         return ''.join(output_str)
 
 
-print(convert_to_string('123'))
+input_int = 666
+print(convert_to_string(input_int))
+print(type(input_int))
+
+output_str = convert_to_string(123)
+print(type(output_str))
