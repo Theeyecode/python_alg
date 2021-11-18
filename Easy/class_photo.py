@@ -1,6 +1,6 @@
 def classPhotos(redShirtHeights, blueShirtHeights):
     if len(redShirtHeights) != len(blueShirtHeights):
-        return 'FALSE'
+        return False
     redShirtHeights.sort(reverse=True)
     blueShirtHeights.sort(reverse=True)
 
