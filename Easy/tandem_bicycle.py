@@ -15,6 +15,7 @@ def tandem(redShirtSpeeds, blueShirtSpeeds, fastest):
     return total_speed
 
 
+# algorithm to reverse a string without using the reversed key
 def reverseTeamSpeed(array):
     start = 0
     end = len(array)-1
@@ -23,6 +24,7 @@ def reverseTeamSpeed(array):
         array[start], array[end] = array[end], array[start]
         start += 1
         end -= 1
+    print(array)
 
 
 red = [5, 5, 3, 9, 2]
