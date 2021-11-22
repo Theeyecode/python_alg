@@ -10,9 +10,11 @@ def compareAndUpdateLargestNumber(threeLargestNum, num):
     if threeLargestNum[2] is None or num > threeLargestNum[2]:
         shiftAndUpdate(threeLargestNum, num, 2)
     elif threeLargestNum[1] is None or num > threeLargestNum[1]:
-        shiftAndUpdate(threeLargestNum, num, 2)
+        shiftAndUpdate(threeLargestNum, num, 1)
     elif threeLargestNum[0] is None or num > threeLargestNum[0]:
-        shiftAndUpdate(threeLargestNum, num, 2)
+        shiftAndUpdate(threeLargestNum, num, 0)
+
+# this helper method helps to shift the numbers to the left if there is bigger number
 
 
 def shiftAndUpdate(array, num, idx):
