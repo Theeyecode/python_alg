@@ -8,14 +8,14 @@ def check_permutaion(str_1, str_2):
 
     for i in str_1:
         if i in d:
-            
+
             d[i] += 1
         else:
             d[i] = 1
 
     for i in str_2:
         if i in d:
-           
+
             d[i] -= 1
         else:
             d[i] = 1
@@ -39,5 +39,5 @@ def check_permutation_2(str1, str2):
     return True
 
 
-print(check_permutaion('hiddl', 'dxdih'))
+print(check_permutaion('hidx dl', 'dxld ih'))
 # print(check_permutation_2('hi', 'ih'))
