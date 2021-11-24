@@ -5,7 +5,8 @@ def sumOfTwoNumbers(array, targetSum):
 
     for n in array:
         potentialNum = targetSum - n
-        if potentialNum in array:  # this alogorithm runs in 0(n) times
+        print(potentialNum)
+        if potentialNum in nums:  # this alogorithm runs in 0(n) times
             return [potentialNum, n]
 
         else:
@@ -30,5 +31,5 @@ def sumOfTwoNumbers(array, targetSum):
 #     return []
 
 
-x = sumOfTwoNumbers([6, -3, 9, 1, 22, 1, 6, 12], 13)
+x = sumOfTwoNumbers([3, 5, -4, 8, 11, 1, -1, 6], 10)
 print(x)
