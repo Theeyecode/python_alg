@@ -1,8 +1,6 @@
 def moveElementToEnd(array, toMove):
     low = 0
     high = len(array) - 1
-    # if len(array) == 0:
-    #     return array
 
     while low < high:
         if array[low] == toMove and array[high] == toMove:
@@ -23,8 +21,9 @@ def moveElementToEnd(array, toMove):
     return array
 
 
+
+
 array = [2, 1, 2, 2, 2, 3, 4, 2]
-array = [1, 2, 4, 5, 6]
-toMove = 3
+toMove = 2
 y = moveElementToEnd(array, toMove)
 print(y)

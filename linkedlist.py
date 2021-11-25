@@ -87,6 +87,13 @@ class LinkedList():
             current = current.next
         print(' ')
 
+    def removeduplicate(self) -> None:
+        if self.head is None:
+            raise ValueError('Linked list is empty')
+        current = self.head
+        while current.next
+
+
 
 x = LinkedList()
 x.addFirst(4)

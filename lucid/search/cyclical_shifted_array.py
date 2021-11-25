@@ -8,6 +8,7 @@ def cyclical_shifted_array(data):
         if data[mid] > data[high]:
             low = mid + 1
         elif data[mid] <= data[high]:
+            # because at this point the midpoint can actually be the lowest instead of the normal  high = mid-1...
             high = mid
 
     return data[low]

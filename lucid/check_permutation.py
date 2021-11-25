@@ -22,7 +22,7 @@ def check_permutaion(str_1, str_2):
             print('k', i)
     return all(value == 0 for value in d.values())
 
-
+#this alogrith checks for the space also and  counts it as a character
 def check_permutation_2(str1, str2):
     if (len(str1) != len(str2)):
         return False

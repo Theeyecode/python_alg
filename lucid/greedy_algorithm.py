@@ -13,6 +13,6 @@ def greedy(data):
     return x
 
 
-A = [6, 3, 2, 7, 5, 5, 10, 4]
+A = [6, 3, 2, 7, 5, 5, 10,]
 y = greedy(A)
 print(y)

@@ -10,3 +10,5 @@ def insertion(array):
 array = [8, 5, 2, 9, 5, 6, 3]
 y = insertion(array)
 print(y)
+
+#   In insertion sort we say the first elemnt is sorted , then we sort through the rest towards the sorted elemnt <---

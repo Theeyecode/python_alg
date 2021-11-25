@@ -11,10 +11,10 @@ def classPhotos(redShirtHeights, blueShirtHeights):
         blueShirtHeight = blueShirtHeights[idx]
 
         if first_row == 'RED':
-            if redShirtHeight > blueShirtHeight:
+            if redShirtHeight >= blueShirtHeight:
                 return False
         else:
-            if blueShirtHeight > redShirtHeight:
+            if blueShirtHeight >= redShirtHeight:
                 return False
 
     return True

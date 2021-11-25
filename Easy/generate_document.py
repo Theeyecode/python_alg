@@ -19,5 +19,4 @@ def generateDocument(characters, document):
 
 
 y = generateDocument("Bst AEterpx sihet elog!", "AlgoExpert is the Best!")
-# y = generateDocument("A", "A")
 print(y)

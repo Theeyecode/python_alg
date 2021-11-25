@@ -21,7 +21,7 @@ def secondfunction(string):
             if string[idx] == string[idx2] and idx != idx2:
                 foundDuplicate = True
 
-        if foundDuplicate:
+        if not foundDuplicate:
             return idx
     return -1
 

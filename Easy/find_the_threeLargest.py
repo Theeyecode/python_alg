@@ -27,10 +27,9 @@
 
 def findThreeLargestNumbers(array):
     currentidx = 0
-
     while currentidx < len(array) - 1:
         if currentidx == 3:
-            return array[3::-1]
+            return array[2::-1]
 
         largestNum = currentidx
         for i in range(largestNum + 1, len(array)):
