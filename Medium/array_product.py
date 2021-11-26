@@ -1,7 +1,6 @@
 def arrayOfProducts(array):
     # Write your code here.
     output = []
-
     for i in range(len(array)):
         y = productSums(array, i)
         output.append(y)
