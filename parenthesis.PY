@@ -38,4 +38,4 @@ def check_parenthesis(balanced_string):
         return False
 
 
-print(check_parenthesis("{}"))
+print(check_parenthesis(""))
