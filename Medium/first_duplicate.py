@@ -14,6 +14,6 @@ def firstDuplicateValue(array):
     return array[firstidxfound]
 
 
-array = [2, 1, 5, 7, 3, 3, 4]
+array = [2, 1, 5, 2, 3, 3, 4]
 y = firstDuplicateValue(array)
 print(y)
