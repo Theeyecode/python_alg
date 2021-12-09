@@ -16,3 +16,5 @@ class Node:
         return array
 
     pass
+
+
