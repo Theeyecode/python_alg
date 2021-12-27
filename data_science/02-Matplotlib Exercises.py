@@ -34,7 +34,7 @@ z = x**2
 
 
 import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
+
 
 
 # ## Exercise 1

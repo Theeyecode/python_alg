@@ -5,7 +5,7 @@
 
 
 import seaborn as sns
-get_ipython().run_line_magic('matplotlib', 'inline')
+# get_ipython().run_line_magic('matplotlib', 'inline')
 iris = sns.load_dataset('iris')
 iris.head()
 

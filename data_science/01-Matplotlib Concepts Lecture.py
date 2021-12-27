@@ -46,7 +46,7 @@ import matplotlib.pyplot as plt
 # In[2]:
 
 
-get_ipython().run_line_magic('matplotlib', 'inline')
+# #######################get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 # That line is only for jupyter notebooks, if you are using another editor, you'll use: **plt.show()** at the end of all your plotting commands to have the figure pop up in another window.

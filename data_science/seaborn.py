@@ -1,19 +1,11 @@
 #!/usr/bin/env python
-# coding: utf-8
 
-# In[19]:
 
 
 import seaborn as sns
 
 
-# In[20]:
 
-
-get_ipython().run_line_magic('matplotlib', 'inline')
-
-
-# In[21]:
 
 
 tips = sns.load_dataset('tips')

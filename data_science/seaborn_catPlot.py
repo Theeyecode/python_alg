@@ -8,7 +8,7 @@
 
 
 import seaborn as sns
-get_ipython().run_line_magic('matplotlib', 'inline')
+
 tips = sns.load_dataset('tips')
 tips.head()
 
