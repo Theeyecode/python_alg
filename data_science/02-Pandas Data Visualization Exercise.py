@@ -15,7 +15,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 df3 = pd.read_csv('df3')
-get_ipython().run_line_magic('matplotlib', 'inline')
+#get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 # In[3]:
