@@ -11,7 +11,7 @@ class Solution:
             cur = nums2[i]
             while stack and cur > stack[-1]:
                 value = stack.pop()
-                idx = nums1Idx[value]
+                idx = nums1Idx[value] 
                 res[idx] = cur
                 print('result',res)
             if cur in nums1Idx:
