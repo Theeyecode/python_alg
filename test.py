@@ -1,25 +1,10 @@
+random_string = "ghaucjdkb"
+res = ""
 
+for char in random_string:
+    if char == 'd':
+        res = res[1:]  # Remove character at index 0 from res
+    elif char in ['a', 'b', 'c']:
+        res += char
 
-# x = {'A', 'B', 'C', 'A'}
-# print('This is a Set',x)
-# print('---------------')
-
-# y = ['A', 'B', 'C', 'A']
-# print('This is a List',y)
-# print('---------------')
-
-def balance(current, creditalert):
-    print(current+creditalert)
-    return
-
-
-x = balance(50000000, 15000000)
-print(x)
-x = balance(65000000, 2000)
-print(x)
-
-
-
-
-
-
+print(res)
