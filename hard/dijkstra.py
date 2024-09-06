@@ -47,14 +47,29 @@ def dijkstra(graph, start):
     return distances, previous
 
 # Example usage:
+
+# Example usage:
 graph = Graph()
 graph.add_vertex("A")
 graph.add_vertex("B")
 graph.add_vertex("C")
-graph.add_edge("A", "B", 1)
-graph.add_edge("B", "C", 2)
-graph.add_edge("A", "C", 4)
+graph.add_vertex("D")
+graph.add_vertex("E")
+graph.add_vertex("F")
+graph.add_vertex("G")
+graph.add_vertex("H")
 
-distances, previous = dijkstra(graph, "A")
-print(distances)
-print(previous)
+
+graph.add_edge("A", "B", 1.8)
+graph.add_edge("A", "C", 1.5)
+graph.add_edge("A", "D", 1.4)
+graph.add_edge("D", "G", 2.4)
+graph.add_edge("D", "F", 2.7)
+graph.add_edge("C", "F", 2.1)
+graph.add_edge("C", "E", 1.8)
+graph.add_edge("B", "E", 1.6)
+graph.add_edge("F", "G", 1.3)
+graph.add_edge("F", "H", 1.2)
+graph.add_edge("E", "F", 1.4)
+graph.add_edge("E", "H", 1.6)
+graph.add_edge("G", "H", 1.5)
