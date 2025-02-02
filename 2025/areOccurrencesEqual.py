@@ -1,13 +1,13 @@
 class Solution:
     def areOccurrencesEqual(self, s: str) -> bool:
-       checker = {}
+       char_count = {} 
 
        for i in s:
-           if i in checker:
-            checker[i] +=1
+           if i in char_count:
+            char_count[i] +=1
            else:
-                checker[i] = 1
-       all_vals = checker.values()
+                char_count[i] = 1
+       all_vals = char_count.values()
        return len(set(all_vals)) == 1
         
         
