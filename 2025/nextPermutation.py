@@ -9,7 +9,7 @@ class Solution:
         i = len(nums)-2  # Start from the second last element
         while i>=0 and nums[i+1] <= nums[i]: # Find the first element that is smaller than the element to its right
             i-=1 # Decrement i
-        if i > 0: # If i is greater than 0
+        if i >= 0: # If i is greater than 0
             j = len(nums)-1 # Start from the last element
             while nums[j] <= nums[i]: # Find the first element that is greater than the element at index i
                 j-=1 # Decrement j
