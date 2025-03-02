@@ -3,8 +3,8 @@ from ortools.linear_solver import pywraplp
 
 solver_name = 'CBC'
 
-
 # Define the Data
+
 # Indices
 I = 5  # Number of products (keep as integer)
 J = 3  # Number of suppliers
@@ -41,21 +41,22 @@ if not solver:
     exit(1)
 
 # Define Decision Variables
+
+# X_ijt
 X = {}
 for i in range(I):
     for j in range(J):
         for t in range(T):
             X[i, j, t] = solver.NumVar(0, solver.infinity(), f'X_{i}_{j}_{t}')
     
-                             
+# Y_jt                           
 Y = {}
 for j in range(J):
     for t in range(T):
         Y[j, t] = solver.BoolVar(f'Y_{j}_{t}')
-    print(Y)
-    exit
 
-# Use 'Inv' for inventory variables instead of 'I'
+
+# 'Inv'  inventory variables instead I_it
 Inv = {}
 for i in range(I):
     for t in range(T):
@@ -93,22 +94,22 @@ status = solver.Solve()
 # Basic Output
 if status == pywraplp.Solver.OPTIMAL:
     print(f'Optimal Solution Found! Total Cost = ${solver.Objective().Value():.2f}')
-    # print("\nOrdering Quantities (Q_ijt):")
-    # for i in range(I):
-    #     for j in range(J):
-    #         for t in range(T):
-    #             if X[i, j, t].solution_value() > 0:
-    #                 print(f'Product {i+1}, Supplier {j+1}, Period {t+1}: {X[i, j, t].solution_value():.2f}')
-    # print("\nOrder Decisions (X_jt):")
-    # for j in range(J):
-    #     for t in range(T):
-    #         if Y[j, t].solution_value() > 0:
-    #             print(f'Supplier {j+1}, Period {t+1}: Order Placed')
-    # print("\nInventory Levels (I_it):")
-    # for i in range(I):
-    #     for t in range(T):
-    #         if Inv[i, t].solution_value() > 0:
-    #             print(f'Product {i+1}, Period {t+1}: {Inv[i, t].solution_value():.2f}')
+    print("\nOrdering Quantities (Q_ijt):")
+    for i in range(I):
+        for j in range(J):
+            for t in range(T):
+                if X[i, j, t].solution_value() > 0:
+                    print(f'Product {i+1}, Supplier {j+1}, Period {t+1}: {X[i, j, t].solution_value():.2f}')
+    print("\nOrder Decisions (X_jt):")
+    for j in range(J):
+        for t in range(T):
+            if Y[j, t].solution_value() > 0:
+                print(f'Supplier {j+1}, Period {t+1}: Order Placed')
+    print("\nInventory Levels (I_it):")
+    for i in range(I):
+        for t in range(T):
+            if Inv[i, t].solution_value() > 0:
+                print(f'Product {i+1}, Period {t+1}: {Inv[i, t].solution_value():.2f}')
 else:
     print("No optimal solution found.")
 
