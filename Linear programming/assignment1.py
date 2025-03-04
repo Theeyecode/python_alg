@@ -93,52 +93,50 @@ status = solver.Solve()
 
 # Basic Output
 if status == pywraplp.Solver.OPTIMAL:
-    print(f'Optimal Solution Found! Total Cost = ${solver.Objective().Value():.2f}')
-    print("\nOrdering Quantities (Q_ijt):")
-    for i in range(I):
-        for j in range(J):
-            for t in range(T):
+    print(f'Optimal Solution Found! Total Cost = ${solver.Objective().Value():.2f}\n')
+
+    # Loop through each period
+    for t in range(T):
+        print(f"Period {t+1}:")
+
+        # Ordering Cost for this period
+        period_ordering_cost = sum(O[j] * Y[j, t].solution_value() for j in range(J))
+        print(f"  Ordering Cost: ${period_ordering_cost:.2f}")
+
+        # Purchasing Cost for this period
+        period_purchasing_cost = sum(P[i][j] * X[i, j, t].solution_value() 
+                                     for i in range(I) for j in range(J))
+        print(f"  Purchasing Cost: ${period_purchasing_cost:.2f}")
+
+        # Holding Cost for this period
+        period_holding_cost = sum(H[i] * Inv[i, t].solution_value() for i in range(I))
+        print(f"  Holding Cost: ${period_holding_cost:.2f}")
+
+        # Additional Information
+        print("  Ordering Quantities (X_ijt):")
+        for i in range(I):
+            for j in range(J):
                 if X[i, j, t].solution_value() > 0:
-                    print(f'Product {i+1}, Supplier {j+1}, Period {t+1}: {X[i, j, t].solution_value():.2f}')
-    print("\nOrder Decisions (X_jt):")
-    for j in range(J):
-        for t in range(T):
+                    print(f"    Product {i+1}, Supplier {j+1}: {X[i, j, t].solution_value():.2f}")
+
+        print("  Order Decisions (Y_jt):")
+        for j in range(J):
             if Y[j, t].solution_value() > 0:
-                print(f'Supplier {j+1}, Period {t+1}: Order Placed')
-    print("\nInventory Levels (I_it):")
-    for i in range(I):
-        for t in range(T):
+                print(f"    Supplier {j+1}: Order Placed")
+
+        print("  Inventory Levels (I_it):")
+        for i in range(I):
             if Inv[i, t].solution_value() > 0:
-                print(f'Product {i+1}, Period {t+1}: {Inv[i, t].solution_value():.2f}')
+                print(f"    Product {i+1}: {Inv[i, t].solution_value():.2f}")
+        print()  # Blank line for readability
+
+    # Total Costs for Verification
+    total_ordering = sum(O[j] * Y[j, t].solution_value() for j in range(J) for t in range(T))
+    total_purchasing = sum(P[i][j] * X[i, j, t].solution_value() for i in range(I) for j in range(J) for t in range(T))
+    total_holding = sum(H[i] * Inv[i, t].solution_value() for i in range(I) for t in range(T))
+    print(f"Total Ordering Cost: ${total_ordering:.2f}")
+    print(f"Total Purchasing Cost: ${total_purchasing:.2f}")
+    print(f"Total Holding Cost: ${total_holding:.2f}")
+
 else:
     print("No optimal solution found.")
-
-
-
-#     Optimal Solution Found! Total Cost = $480343.00
-
-# Ordering Quantities (Q_ijt):
-# Product 1, Supplier 1, Period 1: 129.00
-# Product 1, Supplier 1, Period 3: 92.00
-# Product 2, Supplier 3, Period 1: 90.00
-# Product 2, Supplier 3, Period 2: 73.00
-# Product 2, Supplier 3, Period 3: 89.00
-# Product 3, Supplier 1, Period 1: 153.00
-# Product 3, Supplier 1, Period 3: 95.00
-# Product 4, Supplier 3, Period 1: 92.00
-# Product 4, Supplier 3, Period 2: 97.00
-# Product 4, Supplier 3, Period 3: 53.00
-# Product 5, Supplier 3, Period 1: 54.00
-# Product 5, Supplier 3, Period 2: 88.00
-# Product 5, Supplier 3, Period 3: 87.00
-
-# Order Decisions (X_jt):
-# Supplier 1, Period 1: Order Placed
-# Supplier 1, Period 3: Order Placed
-# Supplier 3, Period 1: Order Placed
-# Supplier 3, Period 2: Order Placed
-# Supplier 3, Period 3: Order Placed
-
-# Inventory Levels (I_it):
-# Product 1, Period 1: 72.00
-# Product 3, Period 1: 95.00
