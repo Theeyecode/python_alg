@@ -48,12 +48,14 @@ for i in range(I):
     for j in range(J):
         for t in range(T):
             X[i, j, t] = solver.NumVar(0, solver.infinity(), f'X_{i}_{j}_{t}')
+print(f'This is the Ordering Quantity X {X}')
     
 # Y_jt                           
 Y = {}
 for j in range(J):
     for t in range(T):
         Y[j, t] = solver.BoolVar(f'Y_{j}_{t}')
+print(f'This is Binary Variable Y either 0 or 1 {Y}')
 
 
 # 'Inv'  inventory variables instead I_it
@@ -62,6 +64,7 @@ for i in range(I):
     for t in range(T):
         Inv[i, t] = solver.NumVar(0, solver.infinity(), f'I_{i}_{t}')
 
+print(f'This is Total Inventory of product I at time T {Inv}')
 # Objective Function
 ordering_cost = solver.Sum(O[j] * Y[j, t] for j in range(J) for t in range(T))
 purchasing_cost = solver.Sum(P[i][j] * X[i, j, t] for i in range(I) for j in range(J) for t in range(T))
