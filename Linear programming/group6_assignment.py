@@ -48,14 +48,14 @@ for i in range(I):
     for j in range(J):
         for t in range(T):
             X[i, j, t] = solver.NumVar(0, solver.infinity(), f'X_{i}_{j}_{t}')
-print(f'This is the Ordering Quantity X {X}')
+
     
 # Y_jt                           
 Y = {}
 for j in range(J):
     for t in range(T):
         Y[j, t] = solver.BoolVar(f'Y_{j}_{t}')
-print(f'This is Binary Variable Y either 0 or 1 {Y}')
+
 
 
 # 'Inv'  inventory variables instead I_it
@@ -143,3 +143,34 @@ if status == pywraplp.Solver.OPTIMAL:
 
 else:
     print("No optimal solution found.")
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Extract Costs per Period
+period_ordering_costs = [sum(O[j] * Y[j, t].solution_value() for j in range(J)) for t in range(T)]
+period_purchasing_costs = [sum(P[i][j] * X[i, j, t].solution_value() for i in range(I) for j in range(J)) for t in range(T)]
+period_holding_costs = [sum(H[i] * Inv[i, t].solution_value() for i in range(I)) for t in range(T)]
+
+# Define Period Labels
+period_labels = [f"Period {t+1}" for t in range(T)]
+
+# Define Bar Positions
+x = np.arange(len(period_labels))
+
+# Plot Stacked Bar Chart
+fig, ax = plt.subplots(figsize=(10, 6))
+bar1 = ax.bar(x, period_ordering_costs, color='blue', label="Ordering Cost")
+bar2 = ax.bar(x, period_purchasing_costs, bottom=period_ordering_costs, color='green', label="Purchasing Cost")
+bar3 = ax.bar(x, period_holding_costs, bottom=np.array(period_ordering_costs) + np.array(period_purchasing_costs), color='red', label="Holding Cost")
+
+# Add Labels & Title
+ax.set_xlabel("Period")
+ax.set_ylabel("Cost ($)")
+ax.set_title("Cost Breakdown Per Period", fontsize=14, fontweight='bold')
+ax.set_xticks(x)
+ax.set_xticklabels(period_labels)
+ax.legend()
+
+# Display  Chart
+plt.show()
