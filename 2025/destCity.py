@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def destCity(self, paths: List[List[str]]) -> str:
         for i in range(len(paths)):
